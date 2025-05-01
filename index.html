@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Animated Flower</title>
+  <title>Animated Yellow Flowers</title>
   <style>
     body {
       margin: 0;
@@ -12,6 +12,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 100px;
       overflow: hidden;
     }
 
@@ -19,16 +20,16 @@
       position: relative;
       width: 100px;
       height: 100px;
-      animation: spin 10s linear infinite;
+      animation: spin 8s linear infinite;
     }
 
     .petal {
       position: absolute;
       width: 60px;
       height: 60px;
-      background: pink;
+      background: yellow; /* Changed to yellow */
       border-radius: 50%;
-      opacity: 0.8;
+      opacity: 0.9;
       top: 20px;
       left: 20px;
       transform-origin: center;
@@ -40,7 +41,7 @@
       left: 35px;
       width: 30px;
       height: 30px;
-      background: yellow;
+      background: yellow; /* Changed to yellow */
       border-radius: 50%;
       z-index: 10;
     }
@@ -52,22 +53,25 @@
   </style>
 </head>
 <body>
-  <div class="flower" id="flower"></div>
+  <div class="flower" id="flower1"></div>
+  <div class="flower" id="flower2"></div>
 
   <script>
-    const flower = document.getElementById("flower");
-
-    // Add 6 petals
-    for (let i = 0; i < 6; i++) {
-      const petal = document.createElement("div");
-      petal.className = "petal";
-      petal.style.transform = `rotate(${i * 60}deg) translate(30px)`;
-      flower.appendChild(petal);
+    function createPetals(flowerId) {
+      const flower = document.getElementById(flowerId);
+      for (let i = 0; i < 6; i++) {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        petal.style.transform = `rotate(${i * 60}deg) translate(30px)`;
+        flower.appendChild(petal);
+      }
+      const center = document.createElement("div");
+      center.className = "center";
+      flower.appendChild(center);
     }
 
-    const center = document.createElement("div");
-    center.className = "center";
-    flower.appendChild(center);
+    createPetals("flower1");
+    createPetals("flower2");
   </script>
 </body>
 </html>
