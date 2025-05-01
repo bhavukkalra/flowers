@@ -13,27 +13,27 @@
 
     .flower {
       position: absolute;
-      width: 120px; /* Bigger flower */
-      height: 120px;
-      animation: spin 6s linear infinite; /* Faster rotation */
+      width: 60px;
+      height: 60px;
+      animation: spin 20s linear infinite;
     }
 
     .petal {
       position: absolute;
-      width: 60px; /* Bigger petal */
-      height: 60px;
+      width: 30px;
+      height: 30px;
       background: pink;
       border-radius: 50%;
       opacity: 0.8;
-      top: 30px;
-      left: 30px;
+      top: 15px;
+      left: 15px;
       transform-origin: center;
     }
 
     .center {
       position: absolute;
-      top: 52px;
-      left: 52px;
+      top: 22px;
+      left: 22px;
       width: 16px;
       height: 16px;
       background: yellow;
@@ -49,7 +49,7 @@
 </head>
 <body>
   <script>
-    const flowerCount = 100; // Adjust to keep performance good with bigger flowers
+    const flowerCount = 150; // you can increase this even more
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
 
@@ -63,15 +63,15 @@
       flower.style.left = `${x}px`;
       flower.style.top = `${y}px`;
 
-      // Random animation speed (faster overall)
-      const speed = 3 + Math.random() * 5;
+      // Random animation speed
+      const speed = 10 + Math.random() * 20;
       flower.style.animationDuration = `${speed}s`;
 
       // Add 6 petals
       for (let j = 0; j < 6; j++) {
         const petal = document.createElement("div");
         petal.className = "petal";
-        petal.style.transform = `rotate(${j * 60}deg) translate(30px)`; // Adjusted for size
+        petal.style.transform = `rotate(${j * 60}deg) translate(15px)`;
         flower.appendChild(petal);
       }
 
